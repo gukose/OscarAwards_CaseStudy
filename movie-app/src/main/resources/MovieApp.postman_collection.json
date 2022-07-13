@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "20d1b1bd-b3c2-4631-855c-623185c2dc86",
+		"name": "MovieApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Gulsah\",\n\t\"lastName\": \"Kose\",\n\t\"username\": \"gulkose\",\n\t\"password\": \"10331033\",\n\t\"email\": \"gulsahkose@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usernameOrEmail\": \"gulkose\",\n\t\"password\": \"123123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8091/api/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetUserInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserInfoByUserName",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/guvkose/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"guvkose",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckUsernameAvailability",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/checkUsernameAvailability?username=guvkose",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"checkUsernameAvailability"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "guvkose"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckEmailAvailability",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/checkEmailAvailability?email=leanne.gram@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"checkEmailAvailability"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "leanne.gram@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Ervin\",\n\t\"lastName\": \"Howell\",\n\t\"username\": \"ervin\",\n\t\"password\": \"updatedpassword\",\n\t\"email\": \"ervin.howell@gmail.com\",\n\t\"address\": {\n\t\t\"street\": \"Victor Plains\",\n\t\t\"suite\": \"Suite 879\",\n\t\t\"city\": \"Wisokyburgh\",\n\t\t\"zipcode\": \"90566-7771\",\n\t\t\"geo\": {\n\t\t\t\"lat\": \"-43.9509\",\n\t\t\t\"lng\": \"-34.4618\"\n\t\t}\n\t},\n\t\"phone\": \"010-692-6593 x09125\",\n\t\"website\": \"http://erwinhowell.com\",\n\t\"company\": {\n\t\t\"name\": \"Deckow-Crist\",\n\t\t\"catchPhrase\": \"Proactive didactic contingency\",\n\t\t\"bs\": \"synergize scalable supply-chains\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/Ervin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"Ervin"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SetOrUpdateInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"street\": \"Douglas Exte\",\n\t\"suite\": \"Suite 847\",\n\t\"city\": \"McKenziehaven\",\n\t\"zipcode\": \"59590-4157\",\n\t\"companyName\": \"Romaguera-Jacobson\",\n\t\"catchPhrase\": \"Face to face bifurcated interface\",\n\t\"bs\": \"e-enable strategic applications\",\n\t\"website\": \"http://ramiro.info\",\n\t\"phone\": \"1-463-123-4447\",\n\t\"lat\": \"-68.6102\",\n\t\"lng\": \"-47.0653\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/setOrUpdateInfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"setOrUpdateInfo"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/Ervin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"Ervin"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "GetOscarStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8091/api/movies/Avatar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"api",
+								"movies",
+								"Avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddRatings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Ervin\",\n\t\"lastName\": \"Howell\",\n\t\"username\": \"ervin\",\n\t\"password\": \"password\",\n\t\"email\": \"ervin.howell@gmail.com\",\n\t\"address\": {\n\t\t\"street\": \"Victor Plains\",\n\t\t\"suite\": \"Suite 879\",\n\t\t\"city\": \"Wisokyburgh\",\n\t\t\"zipcode\": \"90566-7771\",\n\t\t\"geo\": {\n\t\t\t\"lat\": \"-43.9509\",\n\t\t\t\"lng\": \"-34.4618\"\n\t\t}\n\t},\n\t\"phone\": \"010-692-6593 x09125\",\n\t\"website\": \"http://erwinhowell.com\",\n\t\"company\": {\n\t\t\"name\": \"Deckow-Crist\",\n\t\t\"catchPhrase\": \"Proactive didactic contingency\",\n\t\t\"bs\": \"synergize scalable supply-chains\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTop10",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8091/api/movies/rate/top",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"api",
+								"movies",
+								"rate",
+								"top"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNjUwNDgxMTI4LCJleHAiOjE2NTA0ODQ3Mjh9.7X_TayYiBhKrmj7m75U2YiZK17yhHCszIN9-hYjT_aY9H2CaZNTwX-lQnNYzRhksCJ0as_adsVo5NDa_BdxDlg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "UserToken",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2IiwiaWF0IjoxNjUwNDg2MjIyLCJleHAiOjE2NTA0ODYyODJ9.6mlf8AK_NYdp3LIRXRnF0NByrhrLHzRzpklNG63DUa4RYgjckw2J0aMh3ztfutaUNxE38swSu8fv5Oyl38eERw"
+		}
+	]
+}
