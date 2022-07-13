@@ -22,6 +22,7 @@ Controller layer depends on the service layer and is responsible for the incomin
 
 
 ##How to Run
+
 **1. Create Mysql database**
 ```bash
 create database MovieDB or use which has been declared
