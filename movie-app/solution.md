@@ -14,8 +14,8 @@ Controller layer depends on the service layer and is responsible for the incomin
 + <b>Service:</b><br>
   Service layer depends on the repository layer and provides separation of concern, encapsulating all the business logic implementation. It is there to apply business rules on data sent to and from the repository layer. Service layer does not care about the specific database implementation and provides loose coupling.
   <br><br>
-+ <b>Repository<b><br>
++ <b>Repository</b><br>
   Repositories are interfaces that are responsible for data persistence and retrieval. The repository layer is an abstraction that provides all CRUD functionality and keeps hidden the data related information) from the other layers.
   <br><br>
-+ <b>Model<b><br>
++ <b>Model</b><br>
   Domain model is organized under the model package and it consists of entity classes. Entities use various annotations that describe the relationships between each other. All these annotations are used by JPA in order to map entities to database tables.
