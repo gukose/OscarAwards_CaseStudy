@@ -21,7 +21,7 @@ Controller layer depends on the service layer and is responsible for the incomin
   Domain model is organized under the model package and it consists of entity classes. Entities use various annotations that describe the relationships between each other. All these annotations are used by JPA in order to map entities to database tables.
 
 
-##How to Run
+## How to Run
 
 **1. Create Mysql database**
 ```bash
