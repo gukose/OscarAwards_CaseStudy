@@ -2,7 +2,7 @@
 
 Build Restful for a Movie Application using Spring Boot, Mysql, JPA and Hibernate.
 
-## Solutiın
+## Solution
 
 **Description:**
 
